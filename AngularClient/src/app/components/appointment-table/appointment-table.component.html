@@ -1,0 +1,18 @@
+<div class="container">
+  <br><br>
+  <table class="table table-striped table-bordered ">
+    <tr>
+      <th style="background-color: cadetblue" *ngFor="let header of headers">
+        {{header}}
+      </th>
+    </tr>
+    <tr appHover
+      *ngFor="let appointee of appointments">
+      <td>{{ appointee.firstName}}</td>
+      <td>{{ appointee.lastName}}</td>
+      <td>{{ appointee.phoneNumber}}</td>
+      <td>{{ appointee.appointmentDate.getHours()}}</td>
+    </tr>
+  </table>
+</div>
+
