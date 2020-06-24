@@ -6,7 +6,8 @@
         {{header}}
       </th>
     </tr>
-    <tr appHover style="cursor: pointer"
+    <tr appHover style="cursor: pointer" (click)="selectedAppointment(appointee.id)"
+        routerLink="/details"
       *ngFor="let appointee of appointments">
       <td>{{ appointee.firstName}}</td>
       <td>{{ appointee.lastName}}</td>
@@ -16,3 +17,4 @@
   </table>
 </div>
 
+<router-outlet></router-outlet>

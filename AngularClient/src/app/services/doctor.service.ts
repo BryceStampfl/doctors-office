@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Appointment} from '../models/appointment.model';
+import {Doctor} from '../models/doctor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +19,4 @@ export class DoctorService {
   getAppointments() {
     return this.doctors.slice();
   }
-{}
+}
