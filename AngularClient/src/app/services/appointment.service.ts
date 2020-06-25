@@ -8,10 +8,10 @@ export class AppointmentService {
   selectedAppointmentId: number;
 
   private appointments: Appointment[] = [
-    new Appointment(1, 'Bryce', 'Stampfl', '916-803-8473', new Date('2020,02,16')),
-    new Appointment(2, 'Thor', 'Ragnarok', '123-456-7890', new Date('2020,02,16')),
-    new Appointment(3, 'John', 'Cena', '666-666-6666', new Date('2020,02,16')),
-    new Appointment(4, 'Jennifer', 'Lawrence', '987-654-3211', new Date('2020,02,16')),
+    new Appointment(103, 1, new Date('2020,02,01')),
+    new Appointment(104, 2, new Date('2020,02,02')),
+    new Appointment(105, 3, new Date('2020,02,03')),
+    new Appointment(106, 4, new Date('2020,02,04')),
   ];
 
   constructor() {
@@ -21,8 +21,9 @@ export class AppointmentService {
     return this.appointments.slice();
   }
 
+
   getSelectedAppointment() {
-    for (let ele of this.appointments) {
+    for (const ele of this.appointments) {
       if (this.selectedAppointmentId === ele.id) {
         return ele;
       }
@@ -31,7 +32,6 @@ export class AppointmentService {
 
   setSelectedAppointment(id: number) {
     this.selectedAppointmentId = id;
-
   }
 
 

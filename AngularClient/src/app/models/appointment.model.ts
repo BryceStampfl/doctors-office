@@ -1,10 +1,10 @@
+import {Patient} from './patient.model';
+
 export class Appointment {
   constructor(
     public id: number,
-    public firstName: string,
-    public lastName: string,
-    public phoneNumber: string,
-    public appointmentDate: Date) {
+    public patientID: number,
+    public date: Date) {
   }
 
 }
