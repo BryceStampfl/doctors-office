@@ -1,0 +1,8 @@
+<app-tab-header (outputToParent)="getOutputVal($event)"></app-tab-header>
+<app-appointment-info *ngIf="childSelectedTab == 'appointment'"></app-appointment-info>
+<app-patient-info *ngIf="childSelectedTab == 'patient'"></app-patient-info>
+
+
+
+
+

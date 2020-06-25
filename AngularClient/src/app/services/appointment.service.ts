@@ -5,11 +5,13 @@ import {Appointment} from '../models/appointment.model';
   providedIn: 'root'
 })
 export class AppointmentService {
+  selectedAppointmentId: number;
+
   private appointments: Appointment[] = [
-    new Appointment('Bryce', 'Stampfl', '123', new Date('12')),
-    new Appointment('Bryce1', 'Stampfl1', '2123', new Date('11')),
-    new Appointment('Bryce2', 'Stampfl2', '3123', new Date('2')),
-    new Appointment('Bryce3', 'Stampfl3', '4123', new Date('3')),
+    new Appointment(103, 1, new Date('2020,02,01')),
+    new Appointment(104, 2, new Date('2020,02,02')),
+    new Appointment(105, 3, new Date('2020,02,03')),
+    new Appointment(106, 4, new Date('2020,02,04')),
   ];
 
   constructor() {
@@ -17,6 +19,19 @@ export class AppointmentService {
 
   getAppointments() {
     return this.appointments.slice();
+  }
+
+
+  getSelectedAppointment() {
+    for (const ele of this.appointments) {
+      if (this.selectedAppointmentId === ele.id) {
+        return ele;
+      }
+    }
+  }
+
+  setSelectedAppointment(id: number) {
+    this.selectedAppointmentId = id;
   }
 
 
