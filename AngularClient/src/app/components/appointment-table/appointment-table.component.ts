@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, ComponentRef, OnInit} from '@angular/core';
+import {Component, ComponentFactoryResolver, ComponentRef, ElementRef, OnInit} from '@angular/core';
 import {Appointment} from '../../models/appointment.model';
 import {AppointmentService} from '../../services/appointment.service';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
@@ -14,6 +14,9 @@ export class AppointmentTableComponent implements OnInit {
   appointments: Appointment[];
   hover = 'noHover';
 
+  prevSort = '';
+  revSort: boolean;
+
   constructor(private appointmentService: AppointmentService,
               private patientService: PatientService) {
   }
@@ -28,5 +31,30 @@ export class AppointmentTableComponent implements OnInit {
 
   getPatientByAppointment(appointment: Appointment) {
     return this.patientService.getPatientById(appointment.patientID);
+  }
+
+  headerClicked(ele: MouseEvent) {
+    // Gets the header which was clicked
+    const clickedHeader: string = ((ele.target as Element).id);
+
+    if (clickedHeader !== this.prevSort) {
+      this.revSort = false;
+    } else if (this.revSort === true) {
+      this.revSort = false;
+    } else {
+      this.revSort = true;
+    }
+
+    switch (clickedHeader) {
+      case 'FIRST' : { this.appointmentService.sortAppointmentsByFirstName(this.revSort); break;
+      }
+      case 'LAST' : { this.appointmentService.sortAppointmentsByLastName(this.revSort); break;
+      }
+      case 'DATE' : { this.appointmentService.sortAppointmentByDate(this.revSort); break;
+      }
+    }
+
+    this.prevSort = clickedHeader;
+    this.ngOnInit();
   }
 }

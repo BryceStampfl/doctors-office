@@ -2,17 +2,19 @@
   <br><br>
   <table class="table table-striped table-bordered ">
     <tr>
-      <th style="background-color: cadetblue" *ngFor="let header of headers">
+      <th style="background-color: cadetblue; cursor:pointer" *ngFor="let header of headers" id="{{header}}"
+          (click)="headerClicked($event)">
         {{header}}
       </th>
     </tr>
     <tr appHover style="cursor: pointer" (click)="selectedAppointment(appointment.id)"
         routerLink="/details/patient"
-      *ngFor="let appointment of appointments">
+        *ngFor="let appointment of appointments">
       <td>{{getPatientByAppointment(appointment).firstName}}</td>
       <td>{{getPatientByAppointment(appointment).lastName}}</td>
-      <td>{{getPatientByAppointment(appointment).phoneNumber}}</td>
-      <td>{{appointment.date.getMonth() + "/" +  appointment.date.getDay() + " at " + appointment.date.getHours()+":"+appointment.date.getMinutes()}}</td>
+      <td>{{getPatientByAppointment(appointment).contactInfo.phoneNumber}}</td>
+      <td *ngIf="appointment.date.getHours()<12">{{appointment.date.getMonth() + "/" + appointment.date.getDay() + " at " + appointment.date.getHours() + ":" + appointment.date.getMinutes() + " AM"}}</td>
+      <td *ngIf="appointment.date.getHours()>11">{{appointment.date.getMonth() + "/" + appointment.date.getDay() + " at " + appointment.date.getHours() + ":" + appointment.date.getMinutes() + " PM"}}</td>
     </tr>
   </table>
 </div>
