@@ -1,5 +1,8 @@
-<p>{{appointment.id}}</p>
-<p>{{appointment.firstName}}</p>
-<p>{{appointment.lastName}}</p>
-<p>{{appointment.appointmentDate}}</p>
-<p>{{appointment.phoneNumber}}</p>
+<app-tab-header (outputToParent)="getOutputVal($event)"></app-tab-header>
+<app-appointment-info *ngIf="childSelectedTab == 'appointment'"></app-appointment-info>
+<app-patient-info *ngIf="childSelectedTab == 'patient'"></app-patient-info>
+
+
+
+
+

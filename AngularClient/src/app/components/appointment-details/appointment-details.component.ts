@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Appointment} from '../../models/appointment.model';
-import {AppointmentService} from '../../services/appointment.service';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-appointment-details',
@@ -8,14 +6,16 @@ import {AppointmentService} from '../../services/appointment.service';
   styleUrls: ['./appointment-details.component.css']
 })
 export class AppointmentDetailsComponent implements OnInit {
-  appointment: Appointment;
+  childSelectedTab = 'appointment';
 
-  constructor(private appointmentService: AppointmentService) {
-
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.appointment = this.appointmentService.getSelectedAppointment();
+  }
+
+  getOutputVal(tab: string){
+    this.childSelectedTab = tab;
   }
 
 }

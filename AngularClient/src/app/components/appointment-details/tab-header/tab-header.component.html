@@ -1,0 +1,15 @@
+<br>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link"  [ngClass]="{'active': this.selectedTab =='appointment'}" (click)="tabSelected('appointment')"
+         routerLink="/details/appointment">Appointment Info</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  [ngClass]="{'active': this.selectedTab =='patient'}" (click)="tabSelected('patient')"
+         routerLink="/details/patient">Patient Info</a>
+    </li>
+
+  </ul>
+  <br>
+</div>

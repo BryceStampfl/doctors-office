@@ -2,6 +2,7 @@ import {Component, ComponentFactoryResolver, ComponentRef, OnInit} from '@angula
 import {Appointment} from '../../models/appointment.model';
 import {AppointmentService} from '../../services/appointment.service';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
+import {PatientService} from '../../services/patient.service';
 
 @Component({
   selector: 'app-appointment-table',
@@ -14,7 +15,7 @@ export class AppointmentTableComponent implements OnInit {
   hover = 'noHover';
 
   constructor(private appointmentService: AppointmentService,
-              private router: Router) {
+              private patientService: PatientService) {
   }
 
   ngOnInit(): void {
@@ -23,5 +24,9 @@ export class AppointmentTableComponent implements OnInit {
 
   selectedAppointment(id: number) {
     this.appointmentService.setSelectedAppointment(id);
+  }
+
+  getPatientByAppointment(appointment: Appointment) {
+    return this.patientService.getPatientById(appointment.patientID);
   }
 }

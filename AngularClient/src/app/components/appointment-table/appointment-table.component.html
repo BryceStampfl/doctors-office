@@ -6,13 +6,13 @@
         {{header}}
       </th>
     </tr>
-    <tr appHover style="cursor: pointer" (click)="selectedAppointment(appointee.id)"
-        routerLink="/details"
-      *ngFor="let appointee of appointments">
-      <td>{{ appointee.firstName}}</td>
-      <td>{{ appointee.lastName}}</td>
-      <td>{{ appointee.phoneNumber}}</td>
-      <td>{{ appointee.appointmentDate.getHours()}}</td>
+    <tr appHover style="cursor: pointer" (click)="selectedAppointment(appointment.id)"
+        routerLink="/details/patient"
+      *ngFor="let appointment of appointments">
+      <td>{{getPatientByAppointment(appointment).firstName}}</td>
+      <td>{{getPatientByAppointment(appointment).lastName}}</td>
+      <td>{{getPatientByAppointment(appointment).phoneNumber}}</td>
+      <td>{{appointment.date.getMonth() + "/" +  appointment.date.getDay() + " at " + appointment.date.getHours()+":"+appointment.date.getMinutes()}}</td>
     </tr>
   </table>
 </div>
