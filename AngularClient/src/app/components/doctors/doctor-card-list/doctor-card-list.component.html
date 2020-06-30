@@ -1,1 +1,8 @@
-<p>doctor-card-list works!</p>
+<div class="container-fluid container-custom">
+  <div class="row">
+    <div class="col">
+      <app-doctor-card  *ngFor="let doctor of doctors"
+                       [doctor]="doctor"></app-doctor-card>
+    </div>
+  </div>
+</div>
