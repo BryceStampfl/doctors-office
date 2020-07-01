@@ -1,0 +1,12 @@
+<div class="container-fluid container-custom ">
+  <div class="container">
+    <br><br>
+    <div class="row">
+      <div class="col-md-3 text-center" *ngFor="let footer of footers">
+        <b class="font-custom">{{footer.header}}</b>
+        <a class="a-custom font-custom"  routerLink="{{link.url}}"
+           *ngFor="let link of footer.links">{{link.title}}</a>
+      </div>
+    </div>
+  </div>
+</div>
