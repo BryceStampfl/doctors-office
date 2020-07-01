@@ -1,6 +1,6 @@
 <div class="container">
   <br><br>
-  <table class="table table-striped table-bordered ">
+  <table class="table table-striped table-bordered">
     <tr>
       <th style="background-color: cadetblue; cursor:pointer" *ngFor="let header of headers" id="{{header}}"
           (click)="headerClicked($event)">
@@ -17,6 +17,33 @@
       <td *ngIf="appointment.date.getHours()>11">{{appointment.date.getMonth() + "/" + appointment.date.getDay() + " at " + appointment.date.getHours() + ":" + appointment.date.getMinutes() + " PM"}}</td>
     </tr>
   </table>
+
+  <div class="btn-group">
+    <button class="btn btn-info" id="FIRST" (click)="buttonClicked($event)">First</button>
+    <button class="btn btn-info" id="PREVIOUS" (click)="buttonClicked($event)">Previous</button>
+    <button class="btn btn-info" id="{{index}}" (click)="buttonClicked($event)"
+            *ngFor="let index of pages">{{(index+1).toLocaleString()}}</button>
+    <button class="btn btn-info" id="NEXT" (click)="buttonClicked($event)">Next</button>
+    <button class="btn btn-info"id="LAST" (click)="buttonClicked($event)">Last</button>
+
+
+
+  </div>
+
 </div>
 
 <router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
