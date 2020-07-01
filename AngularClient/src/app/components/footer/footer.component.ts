@@ -8,7 +8,6 @@ import {FooterLinks} from '../../models/footer-links.model';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
   footers: FooterLinks[];
 
   constructor(private footerService: FooterService) { }
